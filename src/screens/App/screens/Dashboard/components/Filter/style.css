@@ -1,0 +1,35 @@
+.filter-container {
+  display: flex;
+  align-items: center;
+  padding: 35px;
+  width: 800px;
+}
+
+.filter {
+  border: 0;
+  width: 240px;
+  height: 35px;
+  font-size: 14px;
+  padding: 0 5px;
+  background-color: #f4f4f4;
+}
+
+.filter:focus {
+  outline: none;
+}
+
+select.filter {
+  margin: 0 35px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+}
+
+.search-button {
+  height: 35px;
+  background-color: #a5cd39;
+  border: 0;
+  background-image: url('../../../../../../assets/search.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 35px;
+}
