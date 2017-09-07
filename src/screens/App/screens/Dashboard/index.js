@@ -4,13 +4,9 @@ import Dashboard from './layout'
 import { books } from '../../../../services/bookService';
 
 class DashboardContainer extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = { books }
-    this.filter = this.filter.bind(this);
-  }
+  state = { books }
 
-  filter (e) {
+  filter = (e) => {
     e.preventDefault();
     const type = e.target.children.type.value;
     const value = e.target.children.value.value;
