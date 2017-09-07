@@ -1,7 +1,7 @@
 import React from 'react'
 
 import './style.css'
-import {FILTER_SELECT, NAME, AUTHOR} from './strings'
+import {FILTER_SELECT, NAME, AUTHOR, SEARCH} from './strings'
 
 const Filter = ({ filter }) => {
   return (
@@ -11,7 +11,7 @@ const Filter = ({ filter }) => {
         <option value='title'>{NAME}</option>
         <option value='author'>{AUTHOR}</option>
       </select>
-      <input name='value' className='filter' placeholder='Buscar..' type='text'/>
+      <input name='value' className='filter' placeholder={SEARCH} type='text'/>
       <button className='search-button' type='submit'/>
     </form>
   )
