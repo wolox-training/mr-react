@@ -11,7 +11,7 @@ const Dashboard = (props) => {
       <div className="book-list-container">
         {
           props.books.map((book) => {
-            return <Book title={book.title} author={book.author} imageUrl={book.image_url} key={book.id}/>
+            return <Book book={book} key={book.id}/>
           })
         }
       </div>

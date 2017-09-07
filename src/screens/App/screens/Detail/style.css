@@ -1,0 +1,9 @@
+.detail-container {
+  text-align: left;
+  padding: 20px;
+}
+
+.go-back-link {
+  text-decoration: none;
+  color: #000;
+}
