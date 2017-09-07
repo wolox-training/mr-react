@@ -18,6 +18,11 @@
   max-height: 180px;
 }
 
+.book-link {
+  text-decoration: none;
+  color: #000;
+}
+
 .title {
   font-size: 14px;
   font-weight: bold;
