@@ -1,18 +1,32 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {loginUser} from '../../../../services/authService'
 import {validEmail, validPassword} from '../../../../utils/validators'
 
-import Form from '../../components/Form'
-
 import Login from './layout'
 
-class LoginContainer extends Form {
+class LoginContainer extends Component {
 
   state = {
     email: '',
     password: '',
     touched: {},
     errors: {}
+  }
+
+  onChange = (param) => {
+    const name = param.target.name;
+    const value = param.target.value;
+    this.setState({
+      [name]: value
+    }, this.validate);
+  }
+
+  onBlur = (param) => {
+    const name = param.target.name;
+    const touched = {...this.state.touched, [name]: true};
+    this.setState({
+      touched
+    }, this.validate)
   }
 
   validate = () => {

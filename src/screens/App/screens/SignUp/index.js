@@ -1,13 +1,12 @@
-import React from 'react'
+import React, {Component} from 'react'
 
 import {signUp} from '../../../../services/authService'
-import Form from '../../components/Form'
 import {validEmail, validPassword, validText} from '../../../../utils/validators'
 import {toSnakeCase} from '../../../../utils/stringParsers'
 
 import SignUp from './layout'
 
-class SignUpContainer extends Form {
+class SignUpContainer extends Component {
 
   state = {
     email: '',
@@ -17,6 +16,22 @@ class SignUpContainer extends Form {
     lastName: '',
     touched: {},
     errors: {}
+  }
+
+  onChange = (param) => {
+    const name = param.target.name;
+    const value = param.target.value;
+    this.setState({
+      [name]: value
+    }, this.validate);
+  }
+
+  onBlur = (param) => {
+    const name = param.target.name;
+    const touched = {...this.state.touched, [name]: true};
+    this.setState({
+      touched
+    }, this.validate)
   }
 
   onSubmit = (evt) => {
