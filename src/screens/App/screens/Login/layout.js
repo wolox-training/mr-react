@@ -1,7 +1,9 @@
 import React from 'react'
 
-import Input from './Input/'
-import {PASSWORD, EMAIL, SIGN_IN, ACCEPT, CANCEL, ERROR_EMAIL, ERROR_PASSWORD} from './strings'
+import Input from '../../components/Input/'
+import {PASSWORD, EMAIL, ACCEPT, CANCEL, ERROR_EMAIL, ERROR_PASSWORD} from '../../../../utils/strings'
+
+import {SIGN_IN} from './strings'
 import './style.css'
 
 const Login = ({onSubmit, onCancel, onChange, onBlur, errors, submitError}) => {

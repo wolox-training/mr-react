@@ -1,0 +1,19 @@
+.sign-up-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sign-up-form {
+  position: relative;
+  border: 1px solid #CCC;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  height: 700px;
+  width: 500px;
+  padding: 35px;
+  justify-content: center;
+}

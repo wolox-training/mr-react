@@ -4,4 +4,9 @@ const loginUser = (email, password) => {
   return Axios.post('/users/sessions', { email, password });
 }
 
-export {loginUser};
+const signUp = (user) => {
+  user.locale = 'en';
+  return Axios.post('/users', { user });
+}
+
+export {loginUser, signUp};
