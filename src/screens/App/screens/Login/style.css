@@ -25,6 +25,12 @@
   margin-bottom: 40px;
 }
 
+.login-error {
+  font-size: 16px;
+  color: #ff233e;
+  text-align: center;
+}
+
 .accept-button {
   background-color: #00adee;
 }

@@ -15,7 +15,7 @@ class App extends Component {
           <PrivateRoute exact path='/dashboard' component={DashboardContainer}/>
           <PrivateRoute exact path='/books/:id' component={Detail}/>
           <Route path='/login'
-                render={ props => !localStorage.getItem('user') ? <LoginContainer {...props} /> : <Redirect to={{ pathname: '/dashboard'}}/> }/>
+                render={ props => !localStorage.getItem('access_token') ? <LoginContainer {...props} /> : <Redirect to={{ pathname: '/dashboard'}}/> }/>
         </Switch>
       </div>
     );
