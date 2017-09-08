@@ -1,55 +1,34 @@
 import React from 'react'
 import {loginUser} from '../../../../services/authService'
+import {validEmail, validPassword} from '../../../../utils/validators'
+
+import Form from '../../components/Form'
 
 import Login from './layout'
 
-class LoginContainer extends React.Component {
+class LoginContainer extends Form {
 
   state = {
     email: '',
     password: '',
-    touched: {
-      email: false,
-      password: false
-    },
+    touched: {},
     errors: {}
   }
 
-  onBlur = (param) => {
-    const name = param.target.name;
-    const touched = {...this.state.touched, [name]: true};
-    this.setState({
-      touched
-    }, this.validate)
-  }
-
   validate = () => {
-    const validEmail = this.state.email.length && this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);;
-    const validPassword = this.state.password.length >= 8 && this.state.password.length <= 52;
     this.setState({
       errors: {
-        email: !validEmail && this.state.touched.email,
-        password: !validPassword && this.state.touched.password
+        email: !validEmail(this.state.email) && this.state.touched.email,
+        password: !validPassword(this.state.password) && this.state.touched.password
       }
     });
-  }
-
-  onInputChange = (param) => {
-    const name = param.target.name;
-    const value = param.target.value;
-    this.setState({
-      [name]: value
-    }, this.validate);
   }
 
   onCancel = () => {
     this.setState({
       email: '',
       password: '',
-      touched: {
-        email: false,
-        password: false,
-      },
+      touched: {},
       errors: {}
     })
   }
@@ -70,7 +49,7 @@ class LoginContainer extends React.Component {
     return <Login
               onSubmit={this.onSubmit}
               onCancel={this.onCancel}
-              onChange={this.onInputChange}
+              onChange={this.onChange}
               onBlur={this.onBlur}
               errors={this.state.errors}
               submitError={this.state.submitError} />

@@ -5,6 +5,7 @@ import './style.css';
 import DashboardContainer from './screens/Dashboard'
 import Detail from './screens/Detail'
 import LoginContainer from './screens/Login'
+import SignUpContainer from './screens/SignUp'
 import PrivateRoute from './components/PrivateRoute'
 
 class App extends Component {
@@ -16,6 +17,8 @@ class App extends Component {
           <PrivateRoute exact path='/books/:id' component={Detail}/>
           <Route path='/login'
                 render={ props => !localStorage.getItem('access_token') ? <LoginContainer {...props} /> : <Redirect to={{ pathname: '/dashboard'}}/> }/>
+          <Route path='/sign-up'
+                render={ props => !localStorage.getItem('access_token') ? <SignUpContainer {...props} /> : <Redirect to={{ pathname: '/dashboard'}}/> }/>
         </Switch>
       </div>
     );
