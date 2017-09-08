@@ -1,0 +1,31 @@
+.login-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.login-input {
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  background-color: #f4f4f4;
+}
+
+.login-input:focus {
+  outline: none;
+}
+
+.login-label {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.input-span {
+  font-size: 10px;
+  color: #ff233e;
+  margin-top: 5px;
+}
+
+.invalid {
+  border: 1px solid #ff233e;
+}
