@@ -1,4 +1,5 @@
 import React from 'react'
+import {loginUser} from '../../../../services/authService'
 
 import Login from './layout'
 
@@ -53,9 +54,16 @@ class LoginContainer extends React.Component {
     })
   }
 
-  onSubmit = () => {
-    localStorage.setItem('user', this.state.email);
-    this.props.history.push('/dashboard');
+  onSubmit = (evt) => {
+    evt.preventDefault();
+    loginUser(this.state.email, this.state.password).then((response) => {
+        localStorage.setItem('access_token', response.data.access_token);
+        this.props.history.push('/dashboard');
+    }).catch((error) => {
+      this.setState({
+        submitError: error.response.data.error
+      })
+    })
   }
 
   render() {
@@ -64,7 +72,8 @@ class LoginContainer extends React.Component {
               onCancel={this.onCancel}
               onChange={this.onInputChange}
               onBlur={this.onBlur}
-              errors={this.state.errors} />
+              errors={this.state.errors}
+              submitError={this.state.submitError} />
   }
 }
 

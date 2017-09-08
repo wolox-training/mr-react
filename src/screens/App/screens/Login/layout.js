@@ -4,11 +4,14 @@ import Input from './Input/'
 import {PASSWORD, EMAIL, SIGN_IN, ACCEPT, CANCEL, ERROR_EMAIL, ERROR_PASSWORD} from './strings'
 import './style.css'
 
-const Login = ({onSubmit, onCancel, onChange, onBlur, errors}) => {
+const Login = ({onSubmit, onCancel, onChange, onBlur, errors, submitError}) => {
   return (
     <div className='login-container'>
       <form className='login-form' onSubmit={onSubmit}>
         <h1 className='login-title'>{SIGN_IN}</h1>
+        {
+          submitError ? <h1 className='login-error'>{submitError}</h1> : null
+        }
         <Input
           name='email'
           type='email'
