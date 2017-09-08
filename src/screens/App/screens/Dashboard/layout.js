@@ -4,13 +4,13 @@ import './style.css';
 import Book from './components/Book'
 import Filter from './components/Filter'
 
-const Dashboard = (props) => {
+const Dashboard = ({filter, books}) => {
   return (
     <div className="dashboard">
-      <Filter filter={props.filter}/>
+      <Filter filter={filter}/>
       <div className="book-list-container">
         {
-          props.books.map((book) => {
+          books.map((book) => {
             return <Book book={book} key={book.id}/>
           })
         }
