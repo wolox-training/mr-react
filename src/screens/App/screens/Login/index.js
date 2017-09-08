@@ -24,7 +24,7 @@ class LoginContainer extends React.Component {
   }
 
   validate = () => {
-    const validEmail = this.state.email.length && this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);;
+    const validEmail = this.state.email.length && this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
     const validPassword = this.state.password.length >= 8 && this.state.password.length <= 52;
     this.setState({
       errors: {
