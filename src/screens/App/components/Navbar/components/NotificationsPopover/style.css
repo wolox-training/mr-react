@@ -1,0 +1,51 @@
+.notifications-popover {
+  position: absolute;
+  width: 330px;
+  right: 0;
+  background-color: #FFF;
+  text-align: left;
+  top: 40px;
+  border: 1px solid #f2f2f2;
+  font-size: 14px;
+}
+
+.notifications-popover::before {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: -8px;
+  border-style: solid;
+  border-width: 0 10px 10px;
+  border-color: transparent transparent #f2f2f2 transparent;
+  right: 10px;
+}
+
+.notification-item-popover {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.notification-image {
+  max-height: 80px;
+  max-width: 60px;
+  margin-right: 10px;
+}
+
+.notification-info-popover {
+  display: flex;
+  flex-direction: column;
+}
+
+.notification-title {
+  font-weight: 900;
+  margin: 10px 0;
+}
+
+.notification-author {
+  font-size: 12px;
+}
+
+.notifications-popover:last-child {
+  border-bottom: none;
+}
