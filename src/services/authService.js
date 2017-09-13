@@ -1,7 +1,14 @@
 import Axios from './axiosConfig'
 
+const setAuthentication = () => {
+  Axios.defaults.headers.common['Authorization'] = localStorage.getItem('access_token');
+}
+
 const loginUser = (email, password) => {
-  return Axios.post('/users/sessions', { email, password });
+  return Axios.post('/users/sessions', { email, password }).then((response) => {
+    setAuthentication();
+    return response;
+  });
 }
 
 const signUp = (user) => {
@@ -9,4 +16,5 @@ const signUp = (user) => {
   return Axios.post('/users', { user });
 }
 
-export {loginUser, signUp};
+
+export {loginUser, signUp, setAuthentication};

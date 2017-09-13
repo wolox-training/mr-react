@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom'
 
+import { setAuthentication } from '../../services/authService'
+
 import './style.css';
 import DashboardContainer from './screens/Dashboard'
 import Detail from './screens/Detail'
@@ -12,7 +14,11 @@ import NavbarContainer from './components/Navbar'
 class App extends Component {
 
   userAuthenticated() {
-    return localStorage.getItem('access_token');
+    if (localStorage.getItem('access_token')) {
+      setAuthentication();
+      return true;
+    }
+    return false;
   }
 
   render() {
