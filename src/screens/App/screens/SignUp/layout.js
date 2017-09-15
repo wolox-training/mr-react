@@ -1,61 +1,52 @@
-import React from 'react'
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 
-import Input from '../../components/Input/'
-import {PASSWORD, EMAIL, ACCEPT, CANCEL, ERROR_EMAIL, ERROR_PASSWORD} from '../../../../utils/strings'
+import Input from '../../components/Input/';
+import { signUpValidation } from '../../../../utils/formValidations';
+import { PASSWORD, EMAIL, ACCEPT, CANCEL } from '../../../../utils/strings';
 
-import {SIGN_UP, ERROR_TEXT, PASSWORD_CONFIRMATION, FIRST_NAME, LAST_NAME, ERROR_PASSWORD_CONFIRMATION} from './strings'
+import {SIGN_UP, PASSWORD_CONFIRMATION, FIRST_NAME, LAST_NAME} from './strings';
+
 import './style.css'
 
-const SignUp = ({onSubmit, onChange, onBlur, errors, submitError}) => {
+const SignUp = ({ handleSubmit, pristine, reset, submitting, validate, signUpError }) => {
   return (
     <div className='sign-up-container'>
-      <form className='sign-up-form' onSubmit={onSubmit}>
+      <form className='sign-up-form' onSubmit={handleSubmit}>
         <h1 className='login-title'>{SIGN_UP}</h1>
-        {
-          submitError ? <h1 className='login-error'>{submitError}</h1> : null
-        }
-        <Input
+        { signUpError && <h1 className='login-error'>{signUpError}</h1> }
+        <Field
           name='email'
           type='email'
-          text={EMAIL}
-          onChange={onChange}
-          onBlur={onBlur}
-          errorMessage={errors.email ? ERROR_EMAIL : null}/>
-        <Input
+          label={EMAIL}
+          component={Input} />
+        <Field
           name='password'
           type='password'
-          text={PASSWORD}
-          onChange={onChange}
-          onBlur={onBlur}
-          errorMessage={errors.password ? ERROR_PASSWORD : null} />
-        <Input
+          label={PASSWORD}
+          component={Input} />
+        <Field
           name='confirmPassword'
           type='password'
-          text={PASSWORD_CONFIRMATION}
-          onChange={onChange}
-          onBlur={onBlur}
-          errorMessage={errors.confirmPassword ? ERROR_PASSWORD_CONFIRMATION : null} />
-        <Input
+          label={PASSWORD_CONFIRMATION}
+          component={Input} />
+        <Field
           name='firstName'
           type='text'
-          text={FIRST_NAME}
-          onChange={onChange}
-          onBlur={onBlur}
-          errorMessage={errors.firstName ? ERROR_TEXT: null} />
-        <Input
+          label={FIRST_NAME}
+          component={Input} />
+        <Field
           name='lastName'
           type='text'
-          text={LAST_NAME}
-          onChange={onChange}
-          onBlur={onBlur}
-          errorMessage={errors.lastName ? ERROR_TEXT : null} />
+          label={LAST_NAME}
+          component={Input} />
         <div className='buttons-container'>
-          <button type='button' className='cancel-button form-button'>{CANCEL}</button>
-          <button type='submit' disabled={Object.keys(errors).some(key => errors[key])} className='accept-button form-button'>{ACCEPT}</button>
+          <button type='button' disabled={ submitting } className='cancel-button form-button' onClick={reset}>{CANCEL}</button>
+          <button type='submit' disabled={ pristine || submitting } className='accept-button form-button'>{ACCEPT}</button>
         </div>
       </form>
     </div>
   )
 }
 
-export default SignUp;
+export default reduxForm({ form: 'signup-form', validate: signUpValidation })(SignUp);

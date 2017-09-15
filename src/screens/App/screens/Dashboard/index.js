@@ -27,7 +27,7 @@ class DashboardContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    books: state.booksReducer.books
+    books: state.books.books
   }
 }
 

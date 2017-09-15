@@ -6,6 +6,7 @@ const setAuthentication = () => {
 
 const loginUser = (email, password) => {
   return Axios.post('/users/sessions', { email, password }).then((response) => {
+    localStorage.setItem('access_token', response.data.access_token);
     setAuthentication();
     return response;
   });

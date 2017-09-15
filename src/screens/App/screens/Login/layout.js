@@ -1,40 +1,37 @@
-import React from 'react'
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 
 import Input from '../../components/Input/'
-import {PASSWORD, EMAIL, ACCEPT, CANCEL, ERROR_EMAIL, ERROR_PASSWORD} from '../../../../utils/strings'
+import { PASSWORD, EMAIL, ACCEPT, CANCEL } from '../../../../utils/strings';
+import { loginValidation } from '../../../../utils/formValidations';
 
-import {SIGN_IN} from './strings'
+
+import { SIGN_IN } from './strings'
 import './style.css'
 
-const Login = ({onSubmit, onCancel, onChange, onBlur, errors, submitError}) => {
+const Login = ({ handleSubmit, pristine, reset, submitting, validate, loginError }) => {
   return (
     <div className='login-container'>
-      <form className='login-form' onSubmit={onSubmit}>
+      <form className='login-form' onSubmit={handleSubmit}>
         <h1 className='login-title'>{SIGN_IN}</h1>
-        {
-          submitError ? <h1 className='login-error'>{submitError}</h1> : null
-        }
-        <Input
+        { loginError && <h1 className='login-error'>{loginError}</h1> }
+        <Field
           name='email'
           type='email'
-          text={EMAIL}
-          onChange={onChange}
-          onBlur={onBlur}
-          errorMessage={errors.email ? ERROR_EMAIL : null} />
-        <Input
+          label={EMAIL}
+          component={Input} />
+        <Field
           name='password'
           type='password'
-          text={PASSWORD}
-          onChange={onChange}
-          onBlur={onBlur}
-          errorMessage={errors.password ? ERROR_PASSWORD : null} />
+          label={PASSWORD}
+          component={Input} />
         <div className='buttons-container'>
-          <button type='button' className='cancel-button form-button' onClick={onCancel}>{CANCEL}</button>
-          <button disabled={errors.email || errors.password} type='submit' className='accept-button form-button'>{ACCEPT}</button>
+          <button disabled={ submitting } type='button' className='cancel-button form-button' onClick={reset} >{CANCEL}</button>
+          <button disabled={ pristine || submitting } type='submit' className='accept-button form-button'>{ACCEPT}</button>
         </div>
       </form>
     </div>
   )
-}
+};
 
-export default Login;
+export default reduxForm({ form: 'login-form', validate: loginValidation })(Login);
