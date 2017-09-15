@@ -1,10 +1,11 @@
 import React from 'react';
 
-import './style.css'
-import defaultBook from '../../../../../../assets/Book/default_book.svg'
-import {RENT} from './strings'
+import defaultBook from '../../../../../../assets/Book/default_book.svg';
 
-const BookDetail = ({ book }) => {
+import './style.css';
+import { RENT, WISHLIST } from './strings';
+
+const BookDetail = ({ book, enableWishList, userRent }) => {
   return (
     <div className='detail-book'>
       <div className='detail-book-image-box'>
@@ -15,7 +16,20 @@ const BookDetail = ({ book }) => {
         <p className='detail-author detail-text'>{book.author}</p>
         <p className='detail-text'>{book.year}</p>
         <p className='detail-text'>{book.genre}</p>
-        <button type='button' className='rent-button'>{RENT}</button>
+        {
+          userRent && <h1>{userRent.to}</h1>
+        }
+        {
+          enableWishList && !userRent ?
+            (
+              <div>
+                <h3>No se encuentra disponible</h3>
+                <button type='button' className='book-button wishlist-button'>{WISHLIST}</button>
+              </div>
+            ):
+            <button type='button' className='book-button rent-button'>{RENT}</button>
+        }
+
       </div>
     </div>
   )

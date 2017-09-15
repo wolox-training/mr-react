@@ -8,4 +8,8 @@ const getBook = (id) => {
   return Axios.get(`/books/${id}`);
 }
 
-export {getAllBooks, getBook};
+const getRents = (id) => {
+  return Axios.get(`/books/${id}/rents`);
+}
+
+export {getAllBooks, getBook, getRents};
