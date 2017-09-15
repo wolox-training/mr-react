@@ -1,32 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import Dashboard from './layout'
-import { getAllBooks } from '../../../../services/bookService';
+import Dashboard from './layout';
 
-class DashboardContainer extends React.Component {
+import { actionCreators } from '../../../../redux/books/actions'
 
-  state = {
-    books: []
-  }
+class DashboardContainer extends Component {
 
   componentWillMount() {
-    getAllBooks().then((response) => {
-      this.setState({ books: response.data })
-    });
+    this.props.dispatch(actionCreators.getBooks({}));
   }
 
-  filter = (params) => {
+  onFilter = (params) => {
     params.preventDefault();
     const type = params.target.children.type.value;
     const value = params.target.children.value.value;
     const filter = {};
     filter[type] = value;
-    getAllBooks(filter).then((response) => { this.setState({ books: response.data }) })
+    this.props.dispatch(actionCreators.getBooks(filter))
   }
 
   render() {
-    return <Dashboard books={this.state.books} filter={this.filter}/>
+    return <Dashboard onFilter={this.onFilter} books={this.props.books}/>
   }
-};
+}
 
-export default DashboardContainer;
+const mapStateToProps = state => {
+  return {
+    books: state.booksReducer.books
+  }
+}
+
+export default connect(mapStateToProps)(DashboardContainer)

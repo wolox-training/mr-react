@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import './style.css';
-import Book from './components/Book'
-import Filter from './components/Filter'
+import Book from './components/Book';
+import Filter from './components/Filter';
 
-const Dashboard = ({filter, books}) => {
+const Dashboard = ({ onFilter, books }) => {
   return (
     <div className="dashboard">
-      <Filter filter={filter}/>
+      <Filter onFilter={onFilter}/>
       <div className="book-list-container">
         {
           books.map((book) => {
@@ -17,6 +17,18 @@ const Dashboard = ({filter, books}) => {
       </div>
     </div>
   )
+}
+
+
+Dashboard.propTypes = {
+  books: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: React.PropTypes.string.isRequired,
+      author: React.PropTypes.string.isRequired,
+      imageUrl: React.PropTypes.string
+    }).isRequired
+  ).isRequired,
+  onFilter: PropTypes.func.isRequired
 }
 
 export default Dashboard;

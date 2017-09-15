@@ -3,9 +3,9 @@ import React from 'react'
 import './style.css'
 import {FILTER_SELECT, NAME, AUTHOR, SEARCH} from './strings'
 
-const Filter = ({ filter }) => {
+const Filter = ({ onFilter }) => {
   return (
-    <form onSubmit={filter} className='filter-container'>
+    <form onSubmit={onFilter} className='filter-container'>
       <select name='type' className='filter'>
         <option disabled defaultValue>{FILTER_SELECT}</option>
         <option value='title'>{NAME}</option>

@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react';
 
-import Navbar from './layout'
+import Navbar from './layout';
 
-import { notifications } from '../../../../services/notificationsService.js';
+import { notifications } from '../../../../services/notificationsService';
+import { userAuthenticated } from '../../../../services/authService';
 
-class NavbarContainer extends React.Component {
+class NavbarContainer extends Component {
   state = {
     showUserPopover: false,
     showNotificationPopover: false
@@ -23,12 +24,13 @@ class NavbarContainer extends React.Component {
   }
 
   render() {
-      return <Navbar
-        userPopover={this.state.showUserPopover}
-        notificationsPopover={this.state.showNotificationPopover}
-        onUserClick={this.toggleUserPopover}
-        onNotificationClick={this.toggleNotificationsPopover}
-        notifications={notifications}/>
+    if (!userAuthenticated()) return null;
+    return <Navbar
+      userPopover={this.state.showUserPopover}
+      notificationsPopover={this.state.showNotificationPopover}
+      onUserClick={this.toggleUserPopover}
+      onNotificationClick={this.toggleNotificationsPopover}
+      notifications={notifications}/>
   }
 
 }

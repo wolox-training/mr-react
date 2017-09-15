@@ -16,5 +16,12 @@ const signUp = (user) => {
   return Axios.post('/users', { user });
 }
 
+const userAuthenticated = () => {
+  if (localStorage.getItem('access_token')) {
+    setAuthentication();
+    return true;
+  }
+  return false;
+}
 
-export {loginUser, signUp, setAuthentication};
+export {loginUser, signUp, userAuthenticated};
