@@ -5,7 +5,7 @@ import { Router } from 'react-router';
 import store, { history } from '../../redux/store';
 
 import './style.css';
-import BooksRouter from './components/BooksRouter';
+import BooksRouter from '../../config/routes';
 import NavbarContainer from './components/Navbar';
 
 class App extends Component {

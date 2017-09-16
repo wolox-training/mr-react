@@ -35,7 +35,7 @@ class Detail extends Component {
 
 const mapStateToProps = state => {
   return {
-    book: state.booksReducer.book
+    book: state.books.book
   }
 }
 
