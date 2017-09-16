@@ -2,20 +2,17 @@ import React from 'react'
 
 import './style.css'
 
-const Input = ({name, type, text, onChange, onBlur, errorMessage}) => {
+const Input = ({ input, label, type, meta }) => {
   return (
     <div className='login-input-wrapper'>
-      <label className='login-label' htmlFor={name}>{text}</label>
+      <label className='login-label' htmlFor={name}>{label}</label>
       <input
+        {...input}
         type={type}
         name={name}
-        className={'login-input' + (errorMessage ? ' invalid' : '')}
-        onChange={onChange}
-        onBlur={onBlur}
+        className={'login-input' + (meta.touched && meta.error ? ' invalid' : '')}
         required />
-      {
-        errorMessage ? <span className='input-span'>{errorMessage}</span> : null
-      }
+      { meta.touched && meta.error && <span className='input-span'>{meta.error}</span> }
     </div>
   )
 }

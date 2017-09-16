@@ -1,9 +1,12 @@
-import React, {Component} from 'react'
-import { Link } from 'react-router-dom'
-import { getBook } from '../../../../services/bookService'
-import BookDetail from './components/BookDetail'
-import {GO_BACK} from './strings'
-import './style.css'
+import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import BookDetail from './components/BookDetail';
+import {GO_BACK} from './strings';
+import './style.css';
+
+import { actionCreators } from '../../../../redux/books/actions';
 
 class Detail extends Component {
 
@@ -17,17 +20,23 @@ class Detail extends Component {
 
   componentWillMount() {
     const id = parseInt(this.props.match.params.id, 10);
-    getBook(id).then((response) => this.setState({ book: response.data }))
+    this.props.dispatch(actionCreators.getBookDetail(id));
   }
 
   render() {
     return (
       <div className='detail-container'>
         <Link className='go-back-link' to='/dashboard'> &lt; {GO_BACK}</Link>
-        <BookDetail book={this.state.book} />
+        <BookDetail book={this.props.book} />
       </div>
     )
   }
 }
 
-export default Detail;
+const mapStateToProps = state => {
+  return {
+    book: state.books.book
+  }
+}
+
+export default connect(mapStateToProps)(Detail);
