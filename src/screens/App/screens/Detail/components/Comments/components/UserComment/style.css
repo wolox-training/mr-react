@@ -1,0 +1,27 @@
+.user-name {
+  font-size: 14px;
+  color: #000000;
+  line-height: 19px;
+  margin: 0;
+}
+
+.comment-info-container {
+  margin-left: 20px;
+}
+
+.comment-text-info {
+  font-size: 14px;
+  color: #999999;
+  line-height: 19px;
+}
+
+.comment-date {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+}

@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import PrivateRoute from '../screens/App/components/PrivateRoute'
 import DashboardContainer from '../screens/App/screens/Dashboard';
-import Detail from '../screens/App/screens/Detail';
+import DetailContainer from '../screens/App/screens/Detail';
 import LoginContainer from '../screens/App/screens/Login';
 import SignUpContainer from '../screens/App/screens/SignUp';
 
@@ -13,7 +13,7 @@ const BooksRouter = () => {
   return (
     <Switch>
       <PrivateRoute exact path='/dashboard' component={DashboardContainer}/>
-      <PrivateRoute exact path='/books/:id' component={Detail}/>
+      <PrivateRoute exact path='/books/:id' component={DetailContainer}/>
       <Route path='/login'
             render={ props => !authService.userAuthenticated() ? <LoginContainer {...props} /> : <Redirect to={{ pathname: '/dashboard'}}/> }/>
       <Route path='/sign-up'

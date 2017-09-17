@@ -18,6 +18,7 @@ class DetailContainer extends Component {
     const id = parseInt(this.props.match.params.id, 10);
     this.props.dispatch(actionCreators.getBookDetail(id));
     this.props.dispatch(actionCreators.getBookRents(id));
+    this.props.dispatch(actionCreators.getBookComments(id));
   }
 
   handleAddToWishlist = () => {

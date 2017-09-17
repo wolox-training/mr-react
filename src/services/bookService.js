@@ -13,14 +13,24 @@ const getBookRents = (id) => {
 }
 
 const addToWishlist = (params) => {
-  return Axios.post(`users/${params.user_id}/wishes`, { wish: params });
-};
+  return Axios.post(`/users/${params.user_id}/wishes`, { wish: params });
+}
+
+const getBookComments = (id) => {
+  return Axios.get(`/books/${id}/comments`);
+}
+
+const addBookComment = (params) => {
+  return Axios.post(`/books/${params.book_id}/comments`, { comment: params });
+}
 
 const bookService = {
   getBooks,
   getBookDetail,
   getBookRents,
-  addToWishlist
+  addToWishlist,
+  getBookComments,
+  addBookComment
 };
 
 export default bookService;

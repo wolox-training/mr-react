@@ -1,0 +1,39 @@
+.add-comment-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.comment-user-img {
+  width: 40px;
+  height: 40px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.comment-text {
+  width: 665px;
+  height: 75px;
+  border: 1px solid #979797;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.add-comment-title {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.add-comment-button {
+  background-color: #a5cd39;
+  font-size:  16px;
+  color:  #ffffff;
+  width: 190px;
+  height: 40px;
+  border: 0;
+  margin-top: 20px;
+}
