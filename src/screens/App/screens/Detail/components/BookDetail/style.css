@@ -40,25 +40,3 @@
   margin-left: 20px;
   position: relative;
 }
-
-.book-button {
-  position: absolute;
-  bottom: 0;
-  width: 190px;
-  height: 40px;
-  font-size: 20px;
-  color: white;
-  border: 0;
-}
-
-.book-button.disable-button {
-  background-color: #e6e6e6
-}
-
-.rent-button {
-  background-color: #00adee;
-}
-
-.wishlist-button {
-  background-color: #a5cd39;
-}

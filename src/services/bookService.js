@@ -1,15 +1,26 @@
-import Axios from './axiosConfig'
+import Axios from './axiosConfig';
 
-const getAllBooks = (filter) => {
+const getBooks = (filter) => {
   return Axios.get('/books', { params: filter });
 }
 
-const getBook = (id) => {
+const getBookDetail = (id) => {
   return Axios.get(`/books/${id}`);
 }
 
-const getRents = (id) => {
+const getBookRents = (id) => {
   return Axios.get(`/books/${id}/rents`);
 }
 
-export {getAllBooks, getBook, getRents};
+const addToWishlist = (params) => {
+  return Axios.post(`users/${params.user_id}/wishes`, { wish: params });
+};
+
+const bookService = {
+  getBooks,
+  getBookDetail,
+  getBookRents,
+  addToWishlist
+};
+
+export default bookService;

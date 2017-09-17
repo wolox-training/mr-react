@@ -5,11 +5,16 @@ import BookDetail from './components/BookDetail';
 import {GO_BACK} from './strings';
 import './style.css';
 
-const Detail = ({ book, enableWishList, userRent }) => {
+const Detail = ({ book, enableWishList, userRent, onAddToWishlist, onRentBook }) => {
   return (
     <div className='detail-container'>
       <Link className='go-back-link' to='/dashboard'> &lt; {GO_BACK}</Link>
-      <BookDetail book={book} enableWishList={enableWishList} userRent={userRent}/>
+      <BookDetail
+        book={book}
+        enableWishList={enableWishList}
+        userRent={userRent}
+        onAddToWishlist={onAddToWishlist}
+        onRentBook={onRentBook} />
     </div>
   )
 }
