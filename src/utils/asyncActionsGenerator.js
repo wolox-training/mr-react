@@ -28,7 +28,7 @@ const generateAsyncCreators = (actions, types, service) => {
     obj[functionName] = (data) => {
       return async dispatch => {
         dispatch({ type: types[value.type] });
-        service[functionName](data)
+        return service[functionName](data)
           .then((response) => {
             dispatch(obj[`${functionName}Success`](response.data));
             value.dispatchActions.forEach((action) => {

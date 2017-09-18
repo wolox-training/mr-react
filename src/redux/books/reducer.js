@@ -7,7 +7,8 @@ const initialState = {
     author: '',
     image_url: ''
   },
-  rents: []
+  rents: [],
+  comments: []
 };
 
 const booksReducer = (state = initialState, action) => {
@@ -18,6 +19,8 @@ const booksReducer = (state = initialState, action) => {
       return {...state, book: action.payload.data };
     case actionTypes.GET_BOOK_RENTS_SUCCESS:
       return {...state, rents: action.payload.data };
+    case actionTypes.GET_BOOK_COMMENTS_SUCCESS:
+      return {...state, comments: action.payload.data };
     default:
       return state;
   }

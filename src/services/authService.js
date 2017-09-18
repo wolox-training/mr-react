@@ -30,12 +30,27 @@ const getCurrentUser = () => {
   return Axios.get('/users/me');
 }
 
+const getUserWishlist = (user_id) => {
+  return Axios.get(`/users/${user_id}/wishes`);
+}
+
+const getUserRents = (user_id) => {
+  return Axios.get(`/users/${user_id}/rents`);
+}
+
+const getUserComments = (user_id) => {
+  return Axios.get(`/users/${user_id}/comments`);
+}
+
 const authService = {
   setAuthentication,
   logIn,
   signUp,
   userAuthenticated,
-  getCurrentUser
+  getCurrentUser,
+  getUserWishlist,
+  getUserRents,
+  getUserComments
 }
 
 export default authService;

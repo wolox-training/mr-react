@@ -13,3 +13,5 @@ export const ERROR_PASSWORD = 'La contraseña debera tener entre 8 y 52 caracter
 export const EQUAL_PASSWORD = 'Las contraseñas deben ser iguales.';
 
 export const ERROR_TEXT = 'El campo solo acepta letras';
+
+export const LONG_COMMENT = 'El comentario puede tener hasta 255 caracteres.'

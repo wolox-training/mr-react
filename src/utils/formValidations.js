@@ -1,5 +1,5 @@
 import { validEmail, validPassword, validText } from './validators';
-import { REQUIRED, ERROR_EMAIL, ERROR_PASSWORD, ERROR_TEXT, EQUAL_PASSWORD } from './strings';
+import { REQUIRED, ERROR_EMAIL, ERROR_PASSWORD, ERROR_TEXT, EQUAL_PASSWORD, LONG_COMMENT } from './strings';
 
 const loginValidation = values => {
   const errors = {};
@@ -62,4 +62,14 @@ const signUpValidation = (values) => {
   return errors;
 }
 
-export { loginValidation, signUpValidation };
+const commentValidation = (values) => {
+  const errors = {};
+  if (!values.content) {
+    errors.content = REQUIRED;
+  } else if (values.content.length > 255) {
+    errors.content = LONG_COMMENT;
+  }
+  return errors;
+}
+
+export { loginValidation, signUpValidation, commentValidation };

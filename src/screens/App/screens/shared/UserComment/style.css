@@ -1,0 +1,41 @@
+.user-name {
+  font-size: 14px;
+  color: #000;
+  line-height: 19px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.comment-info-container {
+  margin-left: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.comment-text-info {
+  font-size: 14px;
+  color: #999;
+  line-height: 19px;
+}
+
+.comment-date {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.comment-container {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+}
+
+.name-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.book-title-link {
+  font-size: 14px;
+  color:#00adee;
+}
