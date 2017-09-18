@@ -1,6 +1,6 @@
 .user-name {
   font-size: 14px;
-  color: #000000;
+  color: #000;
   line-height: 19px;
   margin: 0;
   font-weight: bold;
@@ -14,7 +14,7 @@
 
 .comment-text-info {
   font-size: 14px;
-  color: #999999;
+  color: #999;
   line-height: 19px;
 }
 

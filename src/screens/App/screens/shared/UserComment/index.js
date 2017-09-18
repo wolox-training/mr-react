@@ -1,8 +1,8 @@
 import React from 'react';
-import moment from 'moment';
 import { Link } from 'react-router-dom';
 
 import userImage from '../../../../../assets/navbar/user.png';
+import { formattedDate } from '../../../../../utils/dateFormatter';
 import './style.css'
 
 const UserComment = ({ comment, showBookTitle }) => {
@@ -16,7 +16,7 @@ const UserComment = ({ comment, showBookTitle }) => {
             <span>{comment.book.title}</span>
           </Link>
         </div>
-        <p className='comment-date'>{moment(comment.created_at).format('DD/MM/YYYY')}</p>
+        <p className='comment-date'>{formattedDate(comment.created_at)}</p>
         <p className='comment-text-info'>{comment.content}</p>
       </div>
     </div>

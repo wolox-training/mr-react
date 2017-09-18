@@ -1,6 +1,6 @@
 import React from 'react';
 
-import moment from 'moment';
+import { formattedDate } from '../../../../../../../../utils/dateFormatter';
 
 import { RENT, WISHLIST, NOT_AVAILABLE, RETURN_DATE } from './strings';
 import './style.css';
@@ -9,7 +9,7 @@ const RentButton = ({userRent, enableWishList, onAddToWishlist, onRentBook}) => 
   if (userRent) {
     return (
       <div className='rent-button-container'>
-        <span>{`${RETURN_DATE} ${moment(userRent.to, 'YYYY-mm-DD').format('DD/mm/YYYY')}`}</span>
+        <span>{`${RETURN_DATE} ${formattedDate(userRent.to, 'YYYY-mm-DD')}`}</span>
         <button disabled type='button' className='book-button rent-button'>{RENT}</button>
       </div>
     )
