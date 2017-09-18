@@ -39,15 +39,7 @@
   text-align: left;
   margin-left: 20px;
   position: relative;
-}
-
-.rent-button {
-  position: absolute;
-  bottom: 0;
-  width: 190px;
-  height: 40px;
-  font-size: 20px;
-  color: white;
-  border: 0;
-  background-color: #00adee;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

@@ -35,3 +35,8 @@
 .user-popover:last-child {
   border-bottom: none;
 }
+
+.profile-link {
+  text-decoration: none;
+  color: #000;
+}

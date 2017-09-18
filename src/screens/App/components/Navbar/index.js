@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Navbar from './layout';
 
 import { notifications } from '../../../../services/notificationsService';
-import { userAuthenticated } from '../../../../services/authService';
+import authService from '../../../../services/authService';
 
 class NavbarContainer extends Component {
   state = {
@@ -24,7 +24,7 @@ class NavbarContainer extends Component {
   }
 
   render() {
-    if (!userAuthenticated()) return null;
+    if (!authService.userAuthenticated()) return null;
     return <Navbar
       userPopover={this.state.showUserPopover}
       notificationsPopover={this.state.showNotificationPopover}

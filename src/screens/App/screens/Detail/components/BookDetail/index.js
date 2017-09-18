@@ -1,21 +1,27 @@
 import React from 'react';
 
-import './style.css'
-import defaultBook from '../../../../../../assets/Book/default_book.svg'
-import {RENT} from './strings'
+import defaultBook from '../../../../../../assets/Book/default_book.svg';
+import RentButton from './components/RentButton'
+import './style.css';
 
-const BookDetail = ({ book }) => {
+const BookDetail = ({ book, enableWishList, userRent, onAddToWishlist, onRentBook }) => {
   return (
     <div className='detail-book'>
       <div className='detail-book-image-box'>
         <img src={book.image_url || defaultBook} alt={book.title} className='detail-book-image' />
       </div>
       <div className='detail-information'>
-        <p className='detail-title'>{book.title}</p>
-        <p className='detail-author detail-text'>{book.author}</p>
-        <p className='detail-text'>{book.year}</p>
-        <p className='detail-text'>{book.genre}</p>
-        <button type='button' className='rent-button'>{RENT}</button>
+        <div className='book-info'>
+          <p className='detail-title'>{book.title}</p>
+          <p className='detail-author detail-text'>{book.author}</p>
+          <p className='detail-text'>{book.year}</p>
+          <p className='detail-text'>{book.genre}</p>
+        </div>
+        <RentButton
+          enableWishList={enableWishList}
+          userRent={userRent}
+          onAddToWishlist={onAddToWishlist}
+          onRentBook={onRentBook} />
       </div>
     </div>
   )
