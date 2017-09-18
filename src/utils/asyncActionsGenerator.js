@@ -32,11 +32,7 @@ const generateAsyncCreators = (actions, types, service) => {
           .then((response) => {
             dispatch(obj[`${functionName}Success`](response.data));
             value.dispatchActions.forEach((action) => {
-              if (typeof action === "string") {
-                dispatch(obj[action])
-              } else {
-                dispatch(action)
-              }
+              dispatch(action);
             });
           })
           .catch((error) => {

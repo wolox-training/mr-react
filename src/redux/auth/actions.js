@@ -5,7 +5,7 @@ import asyncActionsGenerator from '../../utils/asyncActionsGenerator';
 
 const asyncActions = [
   { type: 'GET_CURRENT_USER',  dispatchActions: [] },
-  { type: 'LOG_IN',            dispatchActions: [ push('/dashboard'), 'getCurrentUser' ] },
+  { type: 'LOG_IN',            dispatchActions: [ push('/dashboard') ] },
   { type: 'SIGN_UP',           dispatchActions: [ push('/login') ] },
 ];
 

@@ -7,7 +7,9 @@ import { actionCreators } from '../../../../redux/auth/actions';
 
 class LoginContainer extends Component {
   onSubmit = (values) => {
-    this.props.dispatch(actionCreators.logIn(values));
+    this.props.dispatch(actionCreators.logIn(values)).then(() => {
+      this.props.dispatch(actionCreators.getCurrentUser());
+    });
   }
 
   render() {
