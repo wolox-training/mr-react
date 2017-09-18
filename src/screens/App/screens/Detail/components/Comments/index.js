@@ -8,6 +8,9 @@ class CommentsContainer extends Component {
 
   addComment = (values) => {
     this.props.dispatch(actionCreators.addBookComment({book_id: this.props.book.id, user_id: this.props.user.id, content: values.content }))
+      .then(() => {
+        this.props.dispatch(actionCreators.getBookComments(this.props.book.id));
+      })
   }
 
   render () {
