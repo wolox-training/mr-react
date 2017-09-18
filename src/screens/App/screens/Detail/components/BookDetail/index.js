@@ -11,10 +11,12 @@ const BookDetail = ({ book, enableWishList, userRent, onAddToWishlist, onRentBoo
         <img src={book.image_url || defaultBook} alt={book.title} className='detail-book-image' />
       </div>
       <div className='detail-information'>
-        <p className='detail-title'>{book.title}</p>
-        <p className='detail-author detail-text'>{book.author}</p>
-        <p className='detail-text'>{book.year}</p>
-        <p className='detail-text'>{book.genre}</p>
+        <div className='book-info'>
+          <p className='detail-title'>{book.title}</p>
+          <p className='detail-author detail-text'>{book.author}</p>
+          <p className='detail-text'>{book.year}</p>
+          <p className='detail-text'>{book.genre}</p>
+        </div>
         <RentButton
           enableWishList={enableWishList}
           userRent={userRent}
