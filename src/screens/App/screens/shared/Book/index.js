@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import './style.css'
-import defaultBook from '../../../../../../assets/Book/default_book.svg'
+import defaultBook from '../../../../../assets/Book/default_book.svg'
 
 const Book = ({book}) => {
   return (

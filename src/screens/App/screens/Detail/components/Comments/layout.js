@@ -4,7 +4,7 @@ import './style.css';
 import { COMMENTS } from './strings';
 
 import AddComment from './components/AddComment';
-import UserComment from './components/UserComment';
+import UserComment from '../../../shared/UserComment';
 
 const Comments = ({ onSubmit, comments }) => {
   return (
@@ -13,7 +13,7 @@ const Comments = ({ onSubmit, comments }) => {
       <AddComment onSubmit={onSubmit} />
       {
         comments.slice(0,4).map((comment) => {
-          return <UserComment comment={comment} key={comment.id}/>
+          return <UserComment comment={comment} key={comment.id} showBookTitle={true}/>
         })
       }
     </div>

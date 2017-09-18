@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import './style.css';
-import Book from './components/Book';
+import Book from '../shared/Book';
 import Filter from './components/Filter';
 
 const Dashboard = ({ onFilter, books }) => {
